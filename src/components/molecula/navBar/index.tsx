@@ -8,7 +8,7 @@ export default function NavBar() {
         <SafeAreaView style={styles.navBar}>
             <ButtonIten icon="home" size={15} select  onPress={() => router.push("/")} />
             <ButtonIten icon="eco" size={15} onPress={() => router.push("/myPlants")}/>
-            <ButtonIten icon="article" size={15} />
+            <ButtonIten icon="local-grocery-store" size={15} onPress={() => router.push("/marketPlace")} />
             <ButtonIten icon="person" size={15} />
         </SafeAreaView>
     )
@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
       justifyContent:"space-between",
       alignItems: 'center',
       paddingHorizontal: 24,
+      position: 'static',
+      bottom: 0,
+      left: 0 , 
+      right: 0,
     }
   })
   
