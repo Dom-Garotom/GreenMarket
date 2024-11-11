@@ -1,18 +1,34 @@
 import { color } from '@/src/styles/colors'
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import ButtonAddCart from '../buttonAddCart/indext'
+import { addItemToCart, getCartItems } from '@/src/storage/market-storage'
 
 type Props = {
-    species : string,
-    price : string,
+    species: string,
+    price: string,
+    id: string
 }
 
-export default function MarketItem( {price  , species} : Props) {
+export default function MarketItem({ id, price, species }: Props) {
+
+    const handleClick = async () => {
+        try {
+            await addItemToCart(species, price)
+        } catch (error) {
+            console.log(error);
+        } finally{
+            Alert.alert("Adicionado" , "Esse item foi adicionado em seu carrinho")
+            console.log(
+                await getCartItems()
+            )
+        }
+    }
+
     return (
-        <TouchableOpacity activeOpacity={0.7}  style={styles.container}>
-            <Image 
-                style={styles.containerItem_itemImage} 
+        <TouchableOpacity activeOpacity={0.7} style={styles.container} onPress={handleClick}>
+            <Image
+                style={styles.containerItem_itemImage}
                 source={require("../../../assets/images-marketPlace/plant.png")}
             />
             <View style={styles.containerItem_itemContent}>
@@ -25,19 +41,19 @@ export default function MarketItem( {price  , species} : Props) {
                 <View style={styles.containerItem_itemContent_containerInfo}>
                     <View>
                         <Text style={styles.containerItem_itemContent_subtitulo}>Price</Text>
-                        <Text style={styles.containerItem_itemContent_titulo}>{price}</Text>
+                        <Text style={styles.containerItem_itemContent_titulo}>${price}</Text>
                     </View>
 
 
-                    <ButtonAddCart/>            
+                    <ButtonAddCart onPress={handleClick}/>
                 </View>
             </View>
         </TouchableOpacity>
     )
 }
 
-const styles  = StyleSheet.create({
-    container:{
+const styles = StyleSheet.create({
+    container: {
         marginHorizontal: 5,
     },
 
