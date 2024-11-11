@@ -13,17 +13,21 @@ export default function MarketPLacePage() {
       style={{ flex: 1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView style={styles.page}>
+      <ScrollView style={styles.page} >
         <View style={styles.container}>
           <ButtonBack />
           <Text style={styles.title}>Torne seu lar mais verde</Text>
           <HeaderMarketplace />
-          <SectionItensMarketplace />
+          <SectionItensMarketplace 
+            sectionName='Popular'
+          />
           <Promotion
             text='30%  OFF na sua primeira compra'
             path='/'
           />
-          <SectionItensMarketplace />
+          <SectionItensMarketplace 
+            sectionName='Em desconto'
+          />
         </View>
       </ScrollView >
       <NavBar />
