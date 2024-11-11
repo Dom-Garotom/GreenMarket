@@ -4,23 +4,24 @@ import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import BUttonCount from '../../atomo/buttonCount';
 import { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import { removeItemFromCart } from '@/src/storage/market-storage';
 
 type Props = {
+  id : string
   species: string;
   price: Float;
   total: (totalPrice: number) => void;
 };
 
-export default function CartItem({ price, species, total }: Props) {
-  const [quantity, setQuantity] = useState(1);
+export default function CartItem({ id ,price, species, total }: Props) {
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() =>{
-    total(quantity * price)
-  }, [quantity , price , total])
+    total(price * quantity)
+  },[quantity])
 
-  const handleRemoveItem = () => {
-    total(0); 
-    setQuantity(0)
+  const handleRemoveItem = async () => {
+    await removeItemFromCart(id)
   }
 
   return (
@@ -45,13 +46,17 @@ export default function CartItem({ price, species, total }: Props) {
         </View>
 
         <View style={styles.containerItem_ButtonContainer}>
-          <BUttonCount direction="arrow-left" onPress={() => setQuantity(quantity - 1)} />
+          <BUttonCount direction="arrow-left" onPress={ () => {
+              setQuantity(quantity - 1)
+          }}  />
 
           <View style={styles.containerItem_quantidade}>
             <Text>{quantity}</Text>
           </View>
 
-          <BUttonCount direction="arrow-right" onPress={() => setQuantity(quantity + 1)} />
+          <BUttonCount direction="arrow-right" onPress={  () => {
+              setQuantity(quantity + 1)
+          }} />
         </View>
       </View>
     </View>
@@ -62,6 +67,7 @@ const styles = StyleSheet.create({
   containerItem: {
     flexDirection: 'row',
     gap: 10,
+    marginVertical: 5,
   },
   containerItem_image: {
     width: 165,
