@@ -1,6 +1,6 @@
 import { color } from '@/src/styles/colors'
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Float } from 'react-native/Libraries/Types/CodegenTypes'
 
 type Props ={
@@ -18,7 +18,7 @@ export default function CartPAy( {price}: Props) {
       <Text style={styles.containerControl_text}>${price}.00</Text>
     </View>
 
-    <TouchableOpacity style={styles.containerControl_button}>
+    <TouchableOpacity style={styles.containerControl_button} onPress={ () => Alert.alert("Compra concluida" , "Parabéns pela sua nova planta! Ela chegará na sua casa logo logo...")}>
       <Text style={{color:"white" , fontWeight:'600'}}>comprar</Text>
     </TouchableOpacity>
   </View>

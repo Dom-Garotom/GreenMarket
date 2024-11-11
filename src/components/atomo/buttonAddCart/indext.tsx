@@ -1,11 +1,14 @@
 import { color } from '@/src/styles/colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 
-export default function ButtonAddCart() {
+type Props = TouchableOpacityProps
+
+
+export default function ButtonAddCart( {...prop} :Props) {
     return (
-        <TouchableOpacity style={styles.containerItem_itemContent_button}>
+        <TouchableOpacity style={styles.containerItem_itemContent_button} {...prop}>
             <MaterialIcons name='add' size={20} color={"white"} />
         </TouchableOpacity>
     )
