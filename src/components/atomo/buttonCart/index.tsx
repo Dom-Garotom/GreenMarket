@@ -1,11 +1,14 @@
 import { color } from '@/src/styles/colors'
 import { MaterialIcons } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 
+
+
 export default function BUttonCart() {
     return (
-        <TouchableOpacity style={styles.buttonCart}>
+        <TouchableOpacity style={styles.buttonCart} onPress={() =>  router.push("/shoppingCart")}>
             <MaterialIcons name="shopping-bag" size={20} color={"white"} />
         </TouchableOpacity>
     )
