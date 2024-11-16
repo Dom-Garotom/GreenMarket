@@ -1,14 +1,14 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { Href, router } from "expo-router";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-type props ={
-    path?:Href<string | object>
+type props = TouchableOpacityProps &{
+    path?:Href
 }
 
-export default function ButtonBack( {path}:props) {
+export default function ButtonBack( {path , ...prop}:props) {
     return (
-        <TouchableOpacity style={styles.buttonBack} onPress={() => path ? router.push(path) : router.back()}>
+        <TouchableOpacity {...prop} style={styles.buttonBack} onPress={() => path ? router.navigate(path) : router.back()}>
             <MaterialIcons name='arrow-back' size={30} />
         </TouchableOpacity>
     )
@@ -17,7 +17,11 @@ export default function ButtonBack( {path}:props) {
 const styles = StyleSheet.create({
     buttonBack:{
         position:'absolute',
+        justifyContent:"center",
         left: 20,
-        top: 24
+        top: 24,
+        width: 40,
+        height: 40,
+        zIndex: 10,
     },
 })
