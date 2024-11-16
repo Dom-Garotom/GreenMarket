@@ -2,14 +2,17 @@ import { SafeAreaView, StyleSheet} from 'react-native'
 import ButtonIten from '../../atomo/buttonIten'
 import { color } from '@/src/styles/colors'
 import { router } from 'expo-router'
+type Props ={
+    selected : "home" | "myPlant" | "market" | "person"
+}
 
-export default function NavBar() {
+export default function NavBar( { selected } : Props) {
     return (
         <SafeAreaView style={styles.navBar}>
-            <ButtonIten icon="home" size={15} select  onPress={() => router.push("/")} />
-            <ButtonIten icon="eco" size={15} onPress={() => router.push("/myPlants")}/>
-            <ButtonIten icon="local-grocery-store" size={15} onPress={() => router.push("/marketPlace")} />
-            <ButtonIten icon="person" size={15} />
+            <ButtonIten   select={selected === "home" && true}    icon="home" size={15} onPress={() => router.push("/")} />
+            <ButtonIten   select={selected === "myPlant" && true}    icon="eco" size={15} onPress={() => router.push("/myPlants")}/>
+            <ButtonIten   select={selected === "market" && true}    icon="local-grocery-store" size={15} onPress={() => router.push("/marketPlace")} />
+            <ButtonIten   select={selected === "person" && true}    icon="person" size={15}  onPress={() => router.push("/")} />
         </SafeAreaView>
     )
 }

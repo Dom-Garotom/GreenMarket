@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
     search: {
         flexDirection: 'row',
         borderRadius: 10,
-        padding: 10,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
         gap: 10,
         alignItems: 'center',
         backgroundColor: "white",

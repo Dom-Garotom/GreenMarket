@@ -30,7 +30,7 @@ export default function MarketPLacePage() {
           />
         </View>
       </ScrollView >
-      <NavBar />
+      <NavBar selected='market' />
     </KeyboardAvoidingView>
   )
 }

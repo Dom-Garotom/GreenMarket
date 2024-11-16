@@ -1,10 +1,10 @@
 import { color } from "@/src/styles/colors";
 import { MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { Href, router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props = {
-    path: string
+    path: Href
     text: string
 }
 
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 22,
         paddingVertical: 10,
         borderRadius: 14,
-        backgroundColor: "#B9B0F2",
+        backgroundColor: "#d6d0ff",
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 97,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       containerAds_titulo: {
         fontSize: 24,
         fontWeight: '800',
-        color: color.green[500],
+        color: "black",
         maxWidth: 259,
       }
     
