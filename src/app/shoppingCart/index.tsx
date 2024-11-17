@@ -5,7 +5,7 @@ import { CartProduct, getCartItems } from '@/src/storage/market-storage'
 import { color } from '@/src/styles/colors'
 import { useFocusEffect } from 'expo-router'
 import React, { useCallback, useState } from 'react'
-import { FlatList, StyleSheet, Text,  View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 
 export default function ShoppindCartPage() {
   const [value, setValues] = useState(0)
@@ -28,10 +28,12 @@ export default function ShoppindCartPage() {
 
       <FlatList
         ListHeaderComponent={
+          <>
             <View style={styles.containerHeader}>
-              <ButtonBack />
+              <ButtonBack path={"/"} />
               <Text style={styles.title}>Meu carrinho</Text>
             </View>
+          </>
         }
         data={Data}
         keyExtractor={(item) => item.id}
@@ -73,9 +75,9 @@ const styles = StyleSheet.create({
 
   containerHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginBottom: 10,
+    position: 'relative',
+    pointerEvents: 'box-none'
   },
 
 })
