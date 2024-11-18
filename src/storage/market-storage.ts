@@ -28,10 +28,51 @@ export async function getCartItems(): Promise<CartProduct[]> {
     }
 }
 
+export async function increaseQuantity( id : string) {
+    try {
+        const response = await AsyncStorage.getItem(key_cart_storage);
+        const data : CartProduct[] = response ? JSON.parse(response) : [];
+
+        const result = data.find( item => item.id === id)
+        if (result){
+            result.quantity += 1;
+            await saveToStorage(key_cart_storage , data);
+            return
+        }   
+
+        throw new Error("O item com o id " + id + " não foi encontrado");
+
+    } catch (error) {
+        throw new Error("Erro ao obter os dados do AsyncStorage: " + error);
+    }
+}
+
+export async function decreaseQuantity( id : string) {
+    try {
+        const response = await AsyncStorage.getItem(key_cart_storage);
+        const data : CartProduct[] = response ? JSON.parse(response) : [];
+
+        const result = data.find( item => item.id === id)
+        
+        if (result){
+            result.quantity -= 1;
+            await saveToStorage(key_cart_storage , data);
+            return
+        }
+
+        throw new Error("O item com o id " + id + " não foi encontrado");
+
+
+    } catch (error) {
+        throw new Error("Erro ao obter os dados do AsyncStorage: " + error);
+    }
+}
+
 
 export async function addItemToCart(plant: string, price: string | number, quantity: number = 1): Promise<void> {
     try {
-        const cartItems = await getCartItems();
+        let cartItems = await getCartItems();
+        cartItems = cartItems ? cartItems : []
 
         const priceNumber = typeof price === "string" ? parseFloat(price) : price;
 
