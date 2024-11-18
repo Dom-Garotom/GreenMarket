@@ -19,9 +19,6 @@ export default function MarketItem({ id, price, species }: Props) {
             console.log(error);
         } finally{
             Alert.alert("Adicionado" , "Esse item foi adicionado em seu carrinho")
-            console.log(
-                await getCartItems()
-            )
         }
     }
 
