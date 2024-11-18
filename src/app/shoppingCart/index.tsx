@@ -1,27 +1,17 @@
 import ButtonBack from '@/src/components/atomo/buttonBack'
 import CartPAy from '@/src/components/atomo/cartPay'
 import CartItem from '@/src/components/molecula/cartItem'
-import { CartProduct, getCartItems } from '@/src/storage/market-storage'
-import { color } from '@/src/styles/colors'
-import { useFocusEffect } from 'expo-router'
-import React, { useCallback, useState } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { FlatList,  Text, View } from 'react-native'
+import { useCart } from '@/src/hooks/useCart'
+import { MaterialIcons } from '@expo/vector-icons'
+import { styles } from './style'
+import ButtonClearCart from '@/src/components/atomo/buttonClearCart'
+
+
 
 export default function ShoppindCartPage() {
-  const [value, setValues] = useState(0)
-  const [Data, setData] = useState<CartProduct[]>([])
-
-  useFocusEffect(
-    useCallback(() => {
-      getAllCartItems()
-    }, [])
-  )
-
-  const getAllCartItems = async () => {
-    const data = await getCartItems()
-    setData(data)
-  }
-
+  const {Data , handleRemoveItem , value , decreaseItem , increaseItem , clear } = useCart();
 
   return (
     <View style={styles.page}>
@@ -29,9 +19,11 @@ export default function ShoppindCartPage() {
       <FlatList
         ListHeaderComponent={
           <>
+
             <View style={styles.containerHeader}>
-              <ButtonBack path={"/"} />
+              <ButtonBack/>
               <Text style={styles.title}>Meu carrinho</Text>
+              <ButtonClearCart  onPress={ () => clear()}/>
             </View>
           </>
         }
@@ -39,10 +31,12 @@ export default function ShoppindCartPage() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <CartItem
-            id={item.id}
             price={item.price}
             species={item.species}
-            total={(e) => setValues(e)}
+            quantity={item.quantity}
+            decreaseItem={ () => decreaseItem(item.id)}
+            increaseItem={ () =>increaseItem(item.id)}
+            removeItem={ () =>  handleRemoveItem(item.id)}
           />
         )}
       />
@@ -51,33 +45,3 @@ export default function ShoppindCartPage() {
     </View>
   )
 }
-
-
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: color.green.bg,
-    flex: 1,
-    padding: 20,
-    paddingBottom: 0,
-    gap: 0,
-  },
-
-
-
-  title: {
-    fontSize: 32,
-    fontWeight: '800',
-    color: color.green[500],
-    textAlign: 'center',
-    marginTop: 18,
-    flex: 1,
-  },
-
-  containerHeader: {
-    flexDirection: 'row',
-    marginBottom: 10,
-    position: 'relative',
-    pointerEvents: 'box-none'
-  },
-
-})
