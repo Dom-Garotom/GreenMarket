@@ -27,7 +27,7 @@ export default function MyPlantsPage() {
         source={require("../../assets/bg-myPlant.png")}
         style={styles.image}
       />
-      <ButtonBack />
+      <ButtonBack  position_left={20} position_top={16}/>
       <View style={styles.container}>
         <Text style={styles.titulo}>Aqui estão as suas plantas :</Text>
       </View>

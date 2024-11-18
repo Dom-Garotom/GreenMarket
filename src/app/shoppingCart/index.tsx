@@ -21,7 +21,7 @@ export default function ShoppindCartPage() {
           <>
 
             <View style={styles.containerHeader}>
-              <ButtonBack/>
+              <ButtonBack position_top={22}/>
               <Text style={styles.title}>Meu carrinho</Text>
               <ButtonClearCart  onPress={ () => clear()}/>
             </View>

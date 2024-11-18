@@ -17,20 +17,20 @@ export default function AddTAskPage() {
     const [time, setTime] = useState("")
 
 
-    const handleNotification = async () =>{
-        const [dia , mes , ano] = date.split('/').map(Number) 
+    const handleNotification = async () => {
+        const [dia, mes, ano] = date.split('/').map(Number)
         const [hora, minuto] = time.split(":").map(Number)
-        const dataTask = new Date(2000 + ano , mes - 1 , dia , hora , minuto );
+        const dataTask = new Date(2000 + ano, mes - 1, dia, hora, minuto);
 
         console.log("data - ", date)
         console.log(time)
 
         console.log(dataTask)
-        console.log("hora - " , hora)
-        console.log("minuto - " , minuto)
-        console.log("dia - " , dia)
-        console.log("mes - " , mes)
-        console.log("ano - " , ano)
+        console.log("hora - ", hora)
+        console.log("minuto - ", minuto)
+        console.log("dia - ", dia)
+        console.log("mes - ", mes)
+        console.log("ano - ", ano)
 
         if (dataTask <= new Date()) {
             Alert.alert("Erro", "A data e hora devem estar no futuro.");
@@ -38,8 +38,8 @@ export default function AddTAskPage() {
         }
 
         await Notifications.scheduleNotificationAsync({
-            content:{
-                title:"My garden",
+            content: {
+                title: "My garden",
                 body: "Já lembrou de regar as suas plantas hoje?"
             },
             trigger: dataTask,
@@ -61,7 +61,7 @@ export default function AddTAskPage() {
             return;
         }
 
-        const result = await addTask(name, date , time ,category);
+        const result = await addTask(name, date, time, category);
 
         if (result) {
             Alert.alert("Task Adicionada", "Sua nova task foi adicionada com sucesso.")
@@ -81,7 +81,8 @@ export default function AddTAskPage() {
                 source={require("../../assets/bg-add-task.jpg")}
                 style={styles.image}
             />
-            <ButtonBack />
+            <ButtonBack position_left={20} position_top={16} />
+
             <View style={styles.container}>
                 <Text style={styles.titulo}>Qual task desejá adicionar :</Text>
 
@@ -115,7 +116,7 @@ export default function AddTAskPage() {
                     />
                 </View>
 
-                <ButtonSubmit title='Adicionar' onPress={ async () => {
+                <ButtonSubmit title='Adicionar' onPress={async () => {
                     handleNotification();
                     handleSubmit();
                 }} />

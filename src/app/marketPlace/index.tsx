@@ -15,7 +15,7 @@ export default function MarketPLacePage() {
     >
       <ScrollView style={styles.page} >
         <View style={styles.container}>
-          <ButtonBack />
+          <ButtonBack  position_left={20} position_top={16}/>
           <Text style={styles.title}>Torne seu lar mais verde</Text>
           <HeaderMarketplace />
           <SectionItensMarketplace 
@@ -30,7 +30,6 @@ export default function MarketPLacePage() {
           />
         </View>
       </ScrollView >
-      <NavBar selected='market' />
     </KeyboardAvoidingView>
   )
 }
