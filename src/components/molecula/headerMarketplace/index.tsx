@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import BUttonCart from '../../atomo/buttonCart'
 import SearchInpunt from '../../atomo/searchInput'
+import ButtonCart from '../../atomo/buttonCart'
 
 export default function HeaderMarketplace() {
     return (
         <View style={styles.containerSearch}>
             <SearchInpunt/>
-            <BUttonCart/>
+            <ButtonCart/>
         </View>
     )
 }

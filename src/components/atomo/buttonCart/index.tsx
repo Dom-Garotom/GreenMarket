@@ -4,11 +4,13 @@ import { router } from 'expo-router'
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 
+type Props = {
+    variant ?: "small" | "default"
+}
 
-
-export default function BUttonCart() {
+export default function ButtonCart( {  variant = "default" } : Props) {
     return (
-        <TouchableOpacity style={styles.buttonCart} onPress={() =>  router.push("/shoppingCart")}>
+        <TouchableOpacity style={variant === 'default' ? styles.buttonCart : styles.buttonCartSmall} onPress={() =>  router.push("/shoppingCart")}>
             <MaterialIcons name="shopping-bag" size={20} color={"white"} />
         </TouchableOpacity>
     )
@@ -21,7 +23,18 @@ const styles = StyleSheet.create({
         height: 45,
         paddingHorizontal: 14,
         paddingVertical: 6,
-        borderRadius: 7,
+        borderRadius: 8,
+        backgroundColor: color.green[200],
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    buttonCartSmall: {
+        width: 50,
+        height: 45,
+        paddingHorizontal: 14,
+        paddingVertical: 6,
+        borderRadius: 100,
         backgroundColor: color.green[200],
         alignItems: 'center',
         justifyContent: 'center',
