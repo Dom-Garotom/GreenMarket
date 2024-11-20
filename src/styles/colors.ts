@@ -1,8 +1,8 @@
 export const color = {
     green: {
-      bg: '#E6ECDE',
+      bg: '#FFFF',
       50:  '#7FCF73',
-      100: '#CDF7C6',
+      100: '#9dfaa3',
       200: '#C3DEA9',
       300: '#00CD8F',
       400: '#5FC6C3',
@@ -10,7 +10,7 @@ export const color = {
     },
     utils: {
       white: '#FFFFFF',
-      black: '#090C0D',
+      black: '#272927',
       subText: '#A3B6A6',
       danger: '#F72200',
       pendente: '#f48686',

@@ -1,34 +1,23 @@
 import React from 'react'
 import { Alert, Image,  Text, TouchableOpacity, View } from 'react-native'
-import ButtonAddCart from '../buttonAddCart/indext'
-import { addItemToCart } from '@/src/storage/market-storage'
 import { router } from 'expo-router'
 import { styles } from './style'
 
 type Props = {
     species: string,
     price: number,
-    id: string
+    id: string,
+    image: any
 }
 
-export default function MarketItem({ id, price, species }: Props) {
+export default function MarketItem({ id, price, species  , image }: Props) {
 
-    const handleClick = async () => {
-        try {
-            await addItemToCart(species, price)
-        } catch (error) {
-            console.log(error);
-            return
-        }
-
-        Alert.alert("Adicionado", "Esse item foi adicionado em seu carrinho")
-    }
 
     return (
         <TouchableOpacity activeOpacity={0.7} style={styles.container} onPress={() => router.push(`/product/${id}` as "/product[id]")}>
             <Image
                 style={styles.containerItem_itemImage}
-                source={require("../../../assets/images-marketPlace/plant.png")}
+                source={image}
             />
             <View style={styles.containerItem_itemContent}>
 
@@ -44,7 +33,6 @@ export default function MarketItem({ id, price, species }: Props) {
                     </View>
 
 
-                    <ButtonAddCart onPress={handleClick} />
                 </View>
             </View>
         </TouchableOpacity>

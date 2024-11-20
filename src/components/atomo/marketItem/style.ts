@@ -8,16 +8,14 @@ export const styles = StyleSheet.create({
 
     containerItem_itemImage: {
         width: 165,
-        height: 157,
+        height: 167,
         backgroundColor: "black",
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
+        borderRadius: 10,
     },
 
     containerItem_itemContent: {
-        padding: 13,
-        gap: 16,
-        backgroundColor: "white",
+        paddingVertical: 8,
+        paddingHorizontal: 4,
         width: 165,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,

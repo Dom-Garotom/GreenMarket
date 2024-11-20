@@ -8,6 +8,7 @@ export type CartProduct = {
     species: string;
     price: number;
     quantity: number;
+    image: any;
 };
     
 async function saveToStorage(key: string, value: any): Promise<void> {
@@ -69,7 +70,7 @@ export async function decreaseQuantity( id : string) {
 }
 
 
-export async function addItemToCart(plant: string, price: string | number, quantity: number = 1): Promise<void> {
+export async function addItemToCart(plant: string, price: string | number, Image : any , quantity: number = 1): Promise<void> {
     try {
         let cartItems = await getCartItems();
         cartItems = cartItems ? cartItems : []
@@ -86,6 +87,7 @@ export async function addItemToCart(plant: string, price: string | number, quant
                 species: plant,
                 price: priceNumber,
                 quantity: quantity,
+                image : Image,
             };
             cartItems.push(newItem);
         }

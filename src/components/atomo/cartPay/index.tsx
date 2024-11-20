@@ -1,27 +1,26 @@
 import { color } from '@/src/styles/colors'
 import React from 'react'
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { Float } from 'react-native/Libraries/Types/CodegenTypes'
+import {  StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-type Props ={
-    price : Float
+type Props = {
+  price: string
+  purchease: () => void;
 }
 
-export default function CartPAy( {price}: Props) {
+export default function CartPAy({ price, purchease }: Props) {
   return (
-    
     <View style={styles.containerControl}>
-    <Text style={styles.containerControl_text}>Carrinho</Text>
+      <Text style={styles.containerControl_text}>Carrinho</Text>
 
-    <View style={styles.containerControl_textContainer}>
-      <Text style={styles.containerControl_text}>Total</Text>
-      <Text style={styles.containerControl_text}>${price}</Text>
+      <View style={styles.containerControl_textContainer}>
+        <Text style={styles.containerControl_text}>Total</Text>
+        <Text style={styles.containerControl_text}>${price}</Text>
+      </View>
+
+      <TouchableOpacity style={styles.containerControl_button} onPress={() => purchease()}>
+        <Text style={{ color: "black", fontWeight: '600' }}>comprar</Text>
+      </TouchableOpacity>
     </View>
-
-    <TouchableOpacity style={styles.containerControl_button} onPress={ () => Alert.alert("Compra concluida" , "Parabéns pela sua nova planta! Ela chegará na sua casa logo logo...")}>
-      <Text style={{color:"white" , fontWeight:'600'}}>comprar</Text>
-    </TouchableOpacity>
-  </View>
   )
 }
 
@@ -29,41 +28,41 @@ export default function CartPAy( {price}: Props) {
 
 
 const styles = StyleSheet.create({
-  
-    containerControl:{  
-      height:159,
-      borderRadius: 20,
-      paddingVertical: 20,
-      paddingHorizontal: 32,
-      backgroundColor:"white",
-      justifyContent:'space-between',
-    },
-  
-    containerControl_button:{
-      borderRadius: 10,
-      height: 52,
-      alignItems:'center',
-      backgroundColor:"black",
-      justifyContent: 'center'
-    },
-  
-  
-    containerControl_text:{
-      fontSize: 16,
-      color: color.green[500],
-      fontWeight: '600',
-    },
-    containerControl_textContainer:{
-      flexDirection:'row',
-      justifyContent: 'space-between',
-    },
-  
-  
-    containerHeader: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-  })
-  
+
+  containerControl: {
+    height: 159,
+    borderRadius: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 32,
+    backgroundColor:color.utils.black,
+    justifyContent: 'space-between',
+  },
+
+  containerControl_button: {
+    borderRadius: 10,
+    height: 52,
+    alignItems: 'center',
+    backgroundColor: color.green[100],
+    justifyContent: 'center'
+  },
+
+
+  containerControl_text: {
+    fontSize: 16,
+    color: color.utils.white,
+    fontWeight: '600',
+  },
+  containerControl_textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+
+  containerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+})
+
