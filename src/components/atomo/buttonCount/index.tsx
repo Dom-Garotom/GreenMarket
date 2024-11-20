@@ -9,7 +9,7 @@ type Props = TouchableOpacityProps & {
 export default function BUttonCount( {direction , ...prop} : Props) {
     return (
         <TouchableOpacity {...prop} style={styles.containerItem_buttonQuantidade}>
-            <MaterialIcons name={direction} size={20} />
+            <MaterialIcons name={direction} size={20} color={"white"}/>
         </TouchableOpacity>
     )
 }
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
       width: 46,
       height: 42,
       borderRadius: 9,
-      backgroundColor: "white",
+      backgroundColor: "black",
       alignItems: 'center',
       justifyContent: 'center',
     },

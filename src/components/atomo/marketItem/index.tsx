@@ -1,6 +1,5 @@
 import React from 'react'
 import { Alert, Image,  Text, TouchableOpacity, View } from 'react-native'
-import ButtonAddCart from '../buttonAddCart/indext'
 import { addItemToCart } from '@/src/storage/market-storage'
 import { router } from 'expo-router'
 import { styles } from './style'
@@ -44,7 +43,6 @@ export default function MarketItem({ id, price, species }: Props) {
                     </View>
 
 
-                    <ButtonAddCart onPress={handleClick} />
                 </View>
             </View>
         </TouchableOpacity>

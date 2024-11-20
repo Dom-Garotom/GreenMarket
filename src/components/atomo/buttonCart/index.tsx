@@ -11,7 +11,7 @@ type Props = {
 export default function ButtonCart( {  variant = "default" } : Props) {
     return (
         <TouchableOpacity style={variant === 'default' ? styles.buttonCart : styles.buttonCartSmall} onPress={() =>  router.push("/shoppingCart")}>
-            <MaterialIcons name="shopping-bag" size={20} color={"white"} />
+            <MaterialIcons name="shopping-bag" size={20} color={color.green[100]} />
         </TouchableOpacity>
     )
 }
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
         paddingVertical: 6,
         borderRadius: 8,
-        backgroundColor: color.green[200],
+        backgroundColor: "black",
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
         paddingVertical: 6,
         borderRadius: 100,
-        backgroundColor: color.green[200],
+        backgroundColor: "black",
         alignItems: 'center',
         justifyContent: 'center',
     },

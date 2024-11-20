@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: color.green.bg,
     gap: 15,
+    marginTop: 15,
   },
 
   title: {
@@ -50,6 +51,5 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: color.green[500],
     textAlign: 'left',
-    marginTop: 15,
   },
 })

@@ -10,14 +10,14 @@ export default function ButtonClearCart( { ...props} :Props) {
         {...props}
         style={
             { 
-                backgroundColor: "white", 
+                backgroundColor: "black", 
                 width: 40, height: 40, 
                 borderRadius: 10, alignItems: 'center', 
                 justifyContent: 'center' 
             }
         }
         >
-            <MaterialIcons name='remove-shopping-cart' size={20} />
+            <MaterialIcons name='remove-shopping-cart' size={20}  color={"white"}/>
         </TouchableOpacity>
     )
 }

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 22,
         paddingVertical: 10,
         borderRadius: 16,
-        backgroundColor: color.green[100],
+        backgroundColor: "black",
         alignItems: 'center',
         gap:22,
         height: 97,
@@ -39,12 +39,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         maxWidth: 159,
+        color: color.green[100]
       },
 
       containerAds_porcent: {
         fontSize: 36,
         fontWeight: '800',
         maxWidth: 259,
+        color: color.green[100],
       },
 
       containerAds_button:{
