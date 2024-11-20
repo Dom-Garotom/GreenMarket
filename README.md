@@ -2,6 +2,10 @@
 
 GreenMarket é um marketplace de plantas com funcionalidades integradas de cuidados, desenvolvido em **React Native** com o **Expo**. O aplicativo permite que usuários comprem plantas e recebam lembretes personalizados para garantir o cuidado ideal de cada uma delas.
 
+## Projeto
+<img src="./assets/images/Cover-markt.png" width="100%"/>
+
+## Telas
 <img src="./assets/images/cover.png" width="100%"/>
 
 ## 🎯 Objetivo
