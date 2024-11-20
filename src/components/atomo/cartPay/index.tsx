@@ -1,15 +1,15 @@
+import { useCart } from '@/src/hooks/useCart'
 import { color } from '@/src/styles/colors'
 import React from 'react'
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { Float } from 'react-native/Libraries/Types/CodegenTypes'
 
 type Props ={
-    price : Float
+  price : string
+  purchease : () => void;
 }
 
-export default function CartPAy( {price}: Props) {
+export default function CartPAy( {price , purchease}: Props) {
   return (
-    
     <View style={styles.containerControl}>
     <Text style={styles.containerControl_text}>Carrinho</Text>
 
@@ -18,7 +18,7 @@ export default function CartPAy( {price}: Props) {
       <Text style={styles.containerControl_text}>${price}</Text>
     </View>
 
-    <TouchableOpacity style={styles.containerControl_button} onPress={ () => Alert.alert("Compra concluida" , "Parabéns pela sua nova planta! Ela chegará na sua casa logo logo...")}>
+    <TouchableOpacity style={styles.containerControl_button} onPress={ () => purchease()}>
       <Text style={{color:"white" , fontWeight:'600'}}>comprar</Text>
     </TouchableOpacity>
   </View>
