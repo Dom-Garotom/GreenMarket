@@ -4,23 +4,18 @@ import { useFocusEffect } from 'expo-router'
 
 export const useCart = () => {
     const [Data, setData] = useState<CartProduct[]>([])
-    const [value, setValues] = useState(0)
+    const [value, setValues] = useState('')
 
     const loadData = useCallback( async () =>{
 
         const dados = await getCartItems();
         dados && setData(dados);
         
-        const totalPrice = dados.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        const totalPrice = dados.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
         setValues(totalPrice);
 
     }, [] );
-    
-    
-    const getValue = () => {
-      const amount = Data.reduce( ( acc , item ) => acc +  (item.price * item.quantity) , 0 );
-      setValues(amount);
-    }
+
     
     const handleRemoveItem = async (id: string) => {
       await removeItemFromCart(id);
