@@ -7,7 +7,7 @@ import { styles } from './style'
 
 type Props = {
     species: string,
-    price: string,
+    price: number,
     id: string
 }
 

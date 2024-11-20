@@ -28,7 +28,7 @@ export default function CartItem({ price, species, decreaseItem , quantity , inc
           <View>
             <Text style={styles.containerItem_Content_titulo}>{species}</Text>
             <Text style={styles.containerItem_Content_subtitulo}>
-              ${price}.00
+              ${price}
             </Text>
           </View>
 

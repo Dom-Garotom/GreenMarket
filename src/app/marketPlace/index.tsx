@@ -1,7 +1,6 @@
 import ButtonBack from '@/src/components/atomo/buttonBack'
 import Promotion from '@/src/components/atomo/promotion'
 import HeaderMarketplace from '@/src/components/molecula/headerMarketplace'
-import NavBar from '@/src/components/molecula/navBar'
 import SectionItensMarketplace from '@/src/components/molecula/sectionItensMarketplace'
 import { color } from '@/src/styles/colors'
 import React from 'react'
@@ -15,7 +14,7 @@ export default function MarketPLacePage() {
     >
       <ScrollView style={styles.page} >
         <View style={styles.container}>
-          <ButtonBack  position_left={20} position_top={16}/>
+          <ButtonBack  position_left={20} position_top={16} />
           <Text style={styles.title}>Torne seu lar mais verde</Text>
           <HeaderMarketplace />
           <SectionItensMarketplace 
