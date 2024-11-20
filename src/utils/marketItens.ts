@@ -1,9 +1,8 @@
 import UUID from "react-native-uuid";
 
-
 export type MarketItem = {
   id: string;
-  url: string;
+  url: any;
   name: string;
   species: string;
   price: number;
@@ -13,7 +12,7 @@ export type MarketItem = {
 export const marketData: MarketItem[] = [
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/aloe-vera.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Aloe Vera',
     species: 'Aloe Vera',
     price: 25.99,
@@ -21,7 +20,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/snake-plant.png',
+    url: require('@/src/assets/images-marketPlace/plant-2.jpg'),
     name: 'Snake Plant',
     species: 'Sansevieria',
     price: 19.99,
@@ -29,7 +28,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/peace-lily.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Peace Lily',
     species: 'Spathiphyllum',
     price: 30.5,
@@ -37,7 +36,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/fern.png',
+    url: require('@/src/assets/images-marketPlace/plant-2.jpg'),
     name: 'Fern',
     species: 'Nephrolepis exaltata',
     price: 15.99,
@@ -45,7 +44,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/rose.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Rose',
     species: 'Rosa',
     price: 35.99,
@@ -53,7 +52,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/cactus.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Cactus',
     species: 'Cactaceae',
     price: 12.99,
@@ -61,7 +60,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/lavender.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Lavender',
     species: 'Lavandula angustifolia',
     price: 18.99,
@@ -69,7 +68,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/orchid.png',
+    url: require('@/src/assets/images-marketPlace/plant-2.jpg'),
     name: 'Orchid',
     species: 'Orchidaceae',
     price: 50.0,
@@ -77,15 +76,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/succulent.png',
-    name: 'Succulent',
-    species: 'Crassulaceae',
-    price: 8.99,
-    description: 'As Succulent são plantas suculentas que retêm água, ideais para quem tem pouco tempo para regá-las.',
-  },
-  {
-    id: UUID.v4() as string,
-    url: 'https://example.com/images/ivy.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Ivy',
     species: 'Hedera helix',
     price: 22.99,
@@ -93,7 +84,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/lily.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Lily',
     species: 'Lilium',
     price: 28.0,
@@ -101,7 +92,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/bamboo.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Bamboo',
     species: 'Bambusoideae',
     price: 23.99,
@@ -109,7 +100,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/tulip.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Tulip',
     species: 'Tulipa',
     price: 40.0,
@@ -117,7 +108,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/chrysanthemum.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Chrysanthemum',
     species: 'Chrysanthemum morifolium',
     price: 12.49,
@@ -125,7 +116,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/geranium.png',
+    url: require('@/src/assets/images-marketPlace/plant-2.jpg'),
     name: 'Geranium',
     species: 'Pelargonium',
     price: 14.99,
@@ -133,7 +124,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/bougainvillea.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Bougainvillea',
     species: 'Bougainvillea glabra',
     price: 18.0,
@@ -141,7 +132,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/jade.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Jade',
     species: 'Crassula ovata',
     price: 23.5,
@@ -149,7 +140,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/sunflower.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Sunflower',
     species: 'Helianthus annuus',
     price: 19.49,
@@ -157,7 +148,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/hydrangea.png',
+    url: require('@/src/assets/images-marketPlace/plant-3.jpg'),
     name: 'Hydrangea',
     species: 'Hydrangea macrophylla',
     price: 36.0,
@@ -165,7 +156,7 @@ export const marketData: MarketItem[] = [
   },
   {
     id: UUID.v4() as string,
-    url: 'https://example.com/images/azalea.png',
+    url: require('@/src/assets/images-marketPlace/plant.png'),
     name: 'Azalea',
     species: 'Rhododendron',
     price: 29.99,
