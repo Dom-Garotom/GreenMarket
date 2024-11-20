@@ -6,13 +6,19 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 type Props = {
     path: Href
     text: string
+    porcent: string
 }
 
-export default function Promotion( {path , text} : Props) {
+export default function Promotion( { porcent , path , text} : Props) {
   return (
     <TouchableOpacity style={styles.containerAds} activeOpacity={0.6} onPress={() => router.push(path)}>
+      <Text style={styles.containerAds_porcent}>{porcent}%</Text>
       <Text style={styles.containerAds_titulo}>{text}</Text>
-      <MaterialIcons name='arrow-right-alt' size={30} />
+
+      <TouchableOpacity style={styles.containerAds_button}>
+        <MaterialIcons name='arrow-right-alt' size={30} />
+      </TouchableOpacity>
+      
     </TouchableOpacity>
   )
 }
@@ -22,18 +28,29 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 22,
         paddingVertical: 10,
-        borderRadius: 14,
-        backgroundColor: "#d6d0ff",
+        borderRadius: 16,
+        backgroundColor: color.green[100],
         alignItems: 'center',
-        justifyContent: 'space-between',
+        gap:22,
         height: 97,
       },
     
       containerAds_titulo: {
-        fontSize: 24,
+        fontSize: 16,
+        fontWeight: '600',
+        maxWidth: 159,
+      },
+
+      containerAds_porcent: {
+        fontSize: 36,
         fontWeight: '800',
-        color: "black",
         maxWidth: 259,
-      }
+      },
+
+      containerAds_button:{
+        backgroundColor:"white",
+        padding: 6,
+        borderRadius: 8,
+      },
     
 })
