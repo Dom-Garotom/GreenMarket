@@ -13,14 +13,15 @@ export default function SearchInpunt() {
 
 const styles = StyleSheet.create({
     search: {
-        flexDirection: 'row',
+        maxWidth: 255,
+        width: "100%",
+        height: 45,
+        gap: 10,
         borderRadius: 10,
         paddingVertical: 4,
         paddingHorizontal: 8,
-        gap: 10,
         alignItems: 'center',
+        flexDirection: 'row',
         backgroundColor: "white",
-        width: "100%",
-        maxWidth: 255,
     },
 })

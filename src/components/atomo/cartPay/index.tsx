@@ -15,7 +15,7 @@ export default function CartPAy( {price}: Props) {
 
     <View style={styles.containerControl_textContainer}>
       <Text style={styles.containerControl_text}>Total</Text>
-      <Text style={styles.containerControl_text}>${price}.00</Text>
+      <Text style={styles.containerControl_text}>${price}</Text>
     </View>
 
     <TouchableOpacity style={styles.containerControl_button} onPress={ () => Alert.alert("Compra concluida" , "Parabéns pela sua nova planta! Ela chegará na sua casa logo logo...")}>

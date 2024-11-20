@@ -13,21 +13,21 @@ export default function AddPlantPage() {
 
     const handleSubmit = async () => {
         if (!plant) {
-            Alert.alert("Erro ao Adicionar" , "Você precisa adicionar a especie da sua planta")
+            Alert.alert("Erro ao Adicionar", "Você precisa adicionar a especie da sua planta")
             return;
         }
-        
+
         if (!name) {
-            Alert.alert("Erro ao Adicionar" , "Você precisa adicionar o nome da sua planta")
+            Alert.alert("Erro ao Adicionar", "Você precisa adicionar o nome da sua planta")
             return;
-        } 
+        }
 
         const result = await addPlant(name, plant);
 
         if (result) {
             router.back();
         } else {
-            Alert.alert("Erro ao Adicionar" , "Infelizmente não foi possivel adicionar a sua nova planta")
+            Alert.alert("Erro ao Adicionar", "Infelizmente não foi possivel adicionar a sua nova planta")
             router.back();
         }
 
@@ -39,13 +39,14 @@ export default function AddPlantPage() {
                 source={require("../../assets/bg-add-plant.png")}
                 style={styles.image}
             />
-            <ButtonBack />
+            <ButtonBack position_left={20} position_top={16} />
+
             <View style={styles.container}>
                 <Text style={styles.titulo}>Adicione uma nova planta na sua vida:</Text>
 
 
                 <View style={styles.containerOption}>
-                <Text style={styles.texto}>Qual o seu tipo de planta:</Text>
+                    <Text style={styles.texto}>Qual o seu tipo de planta:</Text>
                     <InpuOption onChange={setPlant} text="Espada de São Jorge" />
                     <InpuOption onChange={setPlant} text="Lírio da Paz" />
                     <InpuOption onChange={setPlant} text="Peperômia" />
@@ -63,10 +64,10 @@ export default function AddPlantPage() {
                 <Text style={styles.texto}>Qual o nome que gostaria de dar a planta :</Text>
 
                 <View>
-                    <TextInput style={styles.input} 
-                        placeholder='Nome:' 
-                        placeholderTextColor={color.utils.subText} 
-                        onChangeText={(e) => setName(e)} 
+                    <TextInput style={styles.input}
+                        placeholder='Nome:'
+                        placeholderTextColor={color.utils.subText}
+                        onChangeText={(e) => setName(e)}
                     />
 
                     <ButtonSubmit title='Adicionar' onPress={handleSubmit} />
