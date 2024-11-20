@@ -38,6 +38,7 @@ export default function ShoppindCartPage() {
             price={item.price}
             species={item.species}
             quantity={item.quantity}
+            image={item.image}
             decreaseItem={ () => decreaseItem(item.id)}
             increaseItem={ () =>increaseItem(item.id)}
             removeItem={ () =>  handleRemoveItem(item.id)}

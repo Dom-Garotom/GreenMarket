@@ -22,6 +22,7 @@ export default function SectionItensMarketplace( {sectionName} :Props) {
                             id={item.id}
                             species={item.species}
                             price={item.price}
+                            image={item.url}
                         />
                     }
                     horizontal={true}

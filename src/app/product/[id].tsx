@@ -10,7 +10,6 @@ import { addItemToCart } from '@/src/storage/market-storage'
 import { color } from '@/src/styles/colors'
 
 export default function ProductPage() {
-  const [isError, setError] = useState(false);
   const { id } = useLocalSearchParams();
 
   const itemData = marketData.find(item => item.id === id)
@@ -27,7 +26,7 @@ export default function ProductPage() {
   const handleAddCart = async () => {
     try {
     
-      await addItemToCart(itemData?.name, itemData?.price, 1);
+      await addItemToCart(itemData?.name, itemData?.price , itemData.url , 1);
     
     } catch(erro){
       Alert.alert("Indisponível" ,  "No momento esse produto não esta disponível para comprar, por favor tente novamene mais tarde!");
@@ -50,13 +49,8 @@ export default function ProductPage() {
       </View>
 
       <Image
-        source={
-          isError ?
-            require("@/src/assets/images-marketPlace/plant-default.png") :
-            { uri: itemData?.url }
-        }
+        source={itemData.url }
         style={styles.image_content}
-        onError={() => setError(true)}
       />
 
 
@@ -77,7 +71,7 @@ export default function ProductPage() {
       <View style={styles.actions_container}>
         <ButtonAddCart variant='large' name='shopping-cart' onPress={handleAddCart} />
         <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Compra concluida", "Parabéns pela sua nova planta! Ela chegará na sua casa logo logo...")}>
-          <Text style={{ color:  color.green[100] , fontWeight: '600' }}>comprar</Text>
+          <Text style={{ color:  color.green[200] , fontWeight: '600' }}>comprar</Text>
         </TouchableOpacity >
       </View>
 

@@ -9,18 +9,19 @@ type Props = {
   species: string;
   price: Float;
   quantity: number;
+  image: any ,
   increaseItem : () => void;
   decreaseItem : () => void;
   removeItem : () => void;
 };
 
-export default function CartItem({ price, species, decreaseItem , quantity , increaseItem , removeItem }: Props) {
+export default function CartItem({ price, species, decreaseItem , image , quantity , increaseItem , removeItem }: Props) {
 
   return (
     <View style={styles.containerItem}>
       <Image
         style={styles.containerItem_image}
-        source={require("../../../assets/images-marketPlace/plant.png")}
+        source={image}
       />
 
       <View style={styles.containerItem_content}>
